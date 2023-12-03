@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "382987651775",
+    "project_id": "authcomposelearning",
+    "storage_bucket": "authcomposelearning.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:382987651775:android:967d4d78056f54c2cc540a",
+        "android_client_info": {
+          "package_name": "com.example.googleauthcomposelearning"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCn5mbjcvLGmPlo-rEny2_O19AXK77wceA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
