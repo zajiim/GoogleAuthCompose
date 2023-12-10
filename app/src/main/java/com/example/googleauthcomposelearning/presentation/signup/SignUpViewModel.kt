@@ -4,22 +4,24 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.googleauthcomposelearning.data.AuthRepository
 import com.example.googleauthcomposelearning.utils.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class SignUpViewModel @Inject constructor(
     private val authRepository: AuthRepository
 ): ViewModel() {
 
-    val _signUpState = Channel<SignUpState>()
+    private val _signUpState = Channel<SignUpState>()
     val signUpState = _signUpState.receiveAsFlow()
 
     fun signUp(email: String, password: String) = viewModelScope.launch {
         authRepository.signUp(email, password)
-            .collect {result ->
+            .collect { result ->
                 when(result) {
                     is Resource.Error -> {
                         _signUpState.send(SignUpState(isError = result.message.toString()))

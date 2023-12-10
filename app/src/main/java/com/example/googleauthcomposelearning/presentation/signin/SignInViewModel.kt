@@ -15,7 +15,7 @@ class SignInViewModel @Inject constructor(
     private val authRepository: AuthRepository,
 ) : ViewModel() {
 
-    val _signInState = Channel<SignInState>()
+    private val _signInState = Channel<SignInState>()
     val signInState = _signInState.receiveAsFlow()
 
     fun signInUser(email: String, password: String) = viewModelScope.launch {
